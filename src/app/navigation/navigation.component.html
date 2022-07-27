@@ -1,52 +1,71 @@
-  <div class="container-fluid" style="background-color: #F0F0E9">
-    <div class="row justify-content-evenly">
+<nav class="navbar nav-top" style="background-color:#F0F0E9;"><!--header_top-->
+  <div class="container justify-content-between">
+    <!-- Left elements -->
+    <ul class="navbar-nav d-flex flex-row nav-info">
+      <li class="nav-item me-3"><a class="nav-link active" aria-current="page" href="#"><i class="fa fa-phone"></i> +84123456789</a></li>
+      <li class="nav-item me-3"><a class="nav-link" href="#"><i class="fa fa-envelope"></i> daihocnonglam@hcmuaf.edu.vn</a></li>
+    </ul>
+    <!-- Left elements -->
 
-      <div class="col-auto -pull-left">
-        <ul class="nav nav-pills">
-          <li class="nav-item mx-3">
-            <a href=""><i class="fa fa-phone"></i> +84123456789</a>
-          </li>
-          <li class="nav-item mx-3">
-            <a href=""><i class="fa fa-envelope"></i> daihocnonglam@hcmuaf.edu.vn</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="col-auto">
-        <ul class="nav nav-pills">
-          <li class="nav-item mx-3">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-          </li>
-          <li class="nav-item mx-3">
-            <a href="#"><i class="fab fa-twitter"></i></a>
-          </li>
-          <li class="nav-item mx-3">
-            <a href="#"><i class="fab fa-google"></i></a>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-
-
+    <!-- Right elements -->
+    <ul class="navbar-nav d-flex flex-row nav-icon">
+      <!-- Icons -->
+      <li class="nav-item me-4">
+        <a class="nav-link" href="#">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+      <li class="nav-item me-4">
+        <a class="nav-link" href="#">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      <li class="nav-item me-4">
+        <a class="nav-link" href="#">
+          <i class="fab fa-google"></i>
+        </a>
+      </li>
+    </ul>
+    <!-- Right elements -->
   </div>
+</nav><!--/header_top-->
 
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#f8f8f8;">
-  <div class="container-fluid">
-
-    <a class="navbar-brand mt-2 mt-lg-0" routerLink="">
+<!--header-middle-->
+<nav class="navbar navbar-light border-bottom" style="background-color: white">
+  <div class="container">
+    <a class="navbar-brand" routerLink="">
       <img
         src="./assets/images/bell.png"
+        class="me-2"
+        height="45"
         loading="lazy"
       />
-      RING!
-    </a>
+      <a class="navbar-brand mb-0 h1 fs-3" routerLink="">
+        <span style="color: #63e399"> RING!&nbsp; </span>
+        <span> - NEWS</span>
+      </a>
 
-    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    </a>
+  </div>
+</nav> <!--header-middle-->
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: white;">
+  <div class="container">
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="basicNav.toggle()"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <i class="fas fa-bars"></i>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse"
+         id="navbarNav"
+         mdbCollapse
+         #basicNav="mdbCollapse"
+    >
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="nav-item">
@@ -98,5 +117,3 @@
     </div>
   </div>
 </nav>
-
-
