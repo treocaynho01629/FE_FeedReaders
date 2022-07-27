@@ -13,3 +13,97 @@
 @import '~mdb-angular-treeview/scss/treeview.scss';
 @import '~mdb-angular-transfer/scss/transfer.scss';
 @import '~mdb-angular-mention/scss/mention.scss';
+
+//main
+.main-top-heading
+{
+  img
+  {
+    max-height: 300px;
+    width: auto;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  .content
+  {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.right-top-heading
+{
+  min-height: 120px;
+  max-height: 140px;
+
+  img
+  {
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    vertical-align: middle;
+    min-height: 120px;
+    max-height: 140px;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  h6{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.body-top-heading
+{
+  min-height: 160px;
+  max-height: 160px;
+
+  img
+  {
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    vertical-align: middle;
+    min-height: 160px;
+    max-height: 160px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  h6
+  {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .content
+  {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.heading-title
+{
+  background-color: #63e399;
+  color: white;
+  padding: 0.3rem 0.3rem 0.3rem 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}

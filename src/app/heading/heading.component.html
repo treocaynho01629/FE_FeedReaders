@@ -1,16 +1,93 @@
-<br><br><br>
+<br>
 
-<div class="container mt-5">
+<div *ngIf="headingDisplay.length != 0" class="container" >
 
-  <h4>Tin nóng</h4>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb ps-1">
+      <li class="breadcrumb-item active" aria-current="page">Trang chủ</li>
+    </ol>
+  </nav>
 
   <div class="row">
-    <div *ngFor="let article of headingDisplay" class="col-lg-3 mb-3">
-      <div class="box">
-        <img src="{{article.thumbnail}}" width="100%">
-        <h5 class="mt-2 mb-2">{{article.title}}</h5>
-        <p>{{article.pubDate}}</p>
-        <a href="{{article.link}}" class="btn btn-dark btn-sm mt-2" style="background-color:#696763">Đọc tiếp...</a>
+    <div class="col col-12 col-lg-8">
+      <mdb-carousel [controls]="true" [indicators]="true" [dark]="true">
+        <mdb-carousel-item *ngFor="let article of headingDisplay" class="main-top-heading" [interval]="5000">
+          <a class="card" style="height: 450px;" href="{{article.link}}">
+            <img src="{{article.thumbnail}}" class="card-img-top"/>
+            <div class="card-body">
+              <a href="{{article.link}}">
+                <h5 class="card-title">{{article.title}}</h5>
+              </a>
+              <p class="card-text content mb-3">{{article.description}}</p>
+            </div>
+          </a>
+        </mdb-carousel-item>
+      </mdb-carousel>
+    </div>
+
+    <!--Right-->
+    <div class="col col-12 col-lg-4">
+      <div *ngFor="let article of headingDisplay; let i=index">
+        <div *ngIf="i<3" class="card mb-2 right-top-heading">
+          <div class="row g-0">
+            <div class="col-4 col-lg-5">
+              <a href="{{article.link}}">
+                <img
+                  src="{{article.thumbnail}}"
+                  class="img-fluid rounded-start"
+                />
+              </a>
+            </div>
+            <div class="col-8 col-lg-7">
+              <div class="card-body">
+                <a href="{{article.link}}">
+                  <h6 class="card-title" style="text-overflow: ellipsis;">{{article.title}}</h6>
+                </a>
+                <p class="card-text">
+                  <small class="text-muted">{{article.pubDate}}</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col col-12 col-lg-3">
+      <h6 class="heading-title">TIÊU ĐIỂM</h6>
+      <app-left></app-left>
+    </div>
+
+    <div class="col col-12 col-lg-9">
+      <h6 class="heading-title">TIN NÓNG</h6>
+
+      <div *ngFor="let article of headingDisplay; let i=index">
+        <div *ngIf="i>=3" class="card mb-2 body-top-heading">
+          <div class="row g-0">
+            <div class="col-4">
+              <a href="{{article.link}}">
+                <img
+                  src="{{article.thumbnail}}"
+                  class="img-fluid rounded-start"
+                />
+              </a>
+            </div>
+            <div class="col-8">
+              <div class="card-body">
+                <a href="{{article.link}}">
+                  <h6 class="card-title" style="text-overflow: ellipsis;">{{article.title}}</h6>
+                </a>
+                <p class="card-text content">
+                  <small class="text-muted">{{article.description}}</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

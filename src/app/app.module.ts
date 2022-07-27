@@ -54,9 +54,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
 import { TechNewsComponent } from './tech-news/tech-news.component';
+import { LeftComponent } from './left/left.component';
 
 @NgModule({
-  declarations: [AppComponent, HeadingComponent, NavigationComponent, FooterComponent, TechNewsComponent],
+  declarations: [AppComponent, HeadingComponent, NavigationComponent, FooterComponent, TechNewsComponent, LeftComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
