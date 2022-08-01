@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsapiservicesService } from '../services/newsapiservices.service';
+import { NewsParseAPIService } from '../services/newsparseapi.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-heading',
@@ -8,16 +9,22 @@ import { NewsapiservicesService } from '../services/newsapiservices.service';
 })
 export class HeadingComponent implements OnInit {
 
-  constructor(private _service:NewsapiservicesService) { }
+  constructor(private service:NewsParseAPIService, private router:Router) { }
 
-  //Mảng chưa bài viết
-  headingDisplay:any = [];
+  //Mảng chứa bài viết
+  headingNews:any = [];
+  status = "loading";
 
-  ngOnInit(): void {
-    this._service.topHeading().subscribe((result)=>{ //Gán tin vào mảng
-      console.log(result);
-      this.headingDisplay = result.items;
+  ngOnInit() {
+
+    this.service.getNewsFeed("tin-moi-nhat.rss").subscribe((result)=>{
+      this.headingNews = this.service.snippetContent(result).items; //Tỉa content + gán mảng
+      this.status = result.status;
     })
   }
 
+  viewDetails(article: any){ //Xem chi tiết bài
+    this.service.currArticles = article;
+    this.router.navigate(['/details']);
+  }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {NewsParseAPIService} from "../services/newsparseapi.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navigation',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:NewsParseAPIService, private router:Router) { }
+
+  categories: any;
 
   ngOnInit(): void {
+    this.categories = this.service.categories;
   }
 
+  viewCate(category:any){
+    this.router.navigateByUrl('/category/', {skipLocationChange: true}).then(()=>
+    {
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false; //reload router
+      this.router.onSameUrlNavigation = 'reload';
+      this.router.navigate( ['/category/' + category.url])
+    });
+  }
 }
