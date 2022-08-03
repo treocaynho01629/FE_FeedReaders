@@ -67,47 +67,9 @@
          #basicNav="mdbCollapse"
     >
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="">Thời sự</a>
+        <li *ngFor="let category of categories" (click)="viewCate(category)" class="nav-item">
+          <a class="nav-link">{{category.name}}</a>
         </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="tech">Khoa học - Công nghệ</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="tech">Kinh tế</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="tech">Xã hội</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="tech">Pháp luật</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="tech">Văn hoá</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="tech">Giáo dục</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="tech">Thể thao</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="tech">Hồ sơ</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="tech">Quân sự</a>
-        </li>
-
       </ul>
 
       <form class="w-auto">

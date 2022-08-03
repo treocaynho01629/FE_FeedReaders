@@ -49,15 +49,16 @@ import { MdbStorageManagementService } from 'mdb-angular-storage-management';
 import { MdbOnboardingModule } from 'mdb-angular-onboarding';
 import { HeadingComponent } from './heading/heading.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NewsapiservicesService } from './services/newsapiservices.service';
+import { NewsParseAPIService } from './services/newsparseapi.service';
 import { AppRoutingModule } from './app-routing.module';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
-import { TechNewsComponent } from './tech-news/tech-news.component';
+import { CateNewsComponent } from './cate-news/cate-news.component';
 import { LeftComponent } from './left/left.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
-  declarations: [AppComponent, HeadingComponent, NavigationComponent, FooterComponent, TechNewsComponent, LeftComponent],
+  declarations: [AppComponent, HeadingComponent, NavigationComponent, FooterComponent, CateNewsComponent, LeftComponent, DetailsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -106,7 +107,7 @@ import { LeftComponent } from './left/left.component';
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [MdbCookiesManagementService, MdbStorageManagementService, NewsapiservicesService],
+  providers: [MdbCookiesManagementService, MdbStorageManagementService, NewsParseAPIService],
   bootstrap: [AppComponent],
   exports: [
     NavigationComponent

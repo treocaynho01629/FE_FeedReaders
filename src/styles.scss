@@ -14,9 +14,13 @@
 @import '~mdb-angular-transfer/scss/transfer.scss';
 @import '~mdb-angular-mention/scss/mention.scss';
 
+$main-color: #63e399;
+
 //main
 .main-top-heading
 {
+  .card{ color: inherit; }
+
   img
   {
     max-height: 300px;
@@ -37,8 +41,8 @@
 
 .right-top-heading
 {
-  min-height: 120px;
-  max-height: 140px;
+  min-height: 100px;
+  max-height: 120px;
 
   img
   {
@@ -46,20 +50,25 @@
     background-repeat: no-repeat;
     background-position: center center;
     vertical-align: middle;
-    min-height: 120px;
-    max-height: 140px;
+    min-height: 100px;
+    max-height: 120px;
     object-fit: cover;
     height: 100%;
     width: 100%;
   }
 
   h6{
+    font-size: 14px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+  small {font-size: 12px;}
+
+  a { color: inherit; }
 }
 
 .body-top-heading
@@ -97,13 +106,33 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+  a { color: inherit; }
 }
 
 .heading-title
 {
-  background-color: #63e399;
+  background-color: $main-color;
   color: white;
   padding: 0.3rem 0.3rem 0.3rem 0.8rem;
   margin-bottom: 1rem;
   border-radius: 5px;
+}
+
+.page-loader
+{
+  height: 100%;
+  width: 100%;
+  z-index: 1029;
+  margin-top: 10%;
+
+  .spinner-border
+  {
+    color: $main-color;
+  }
+
+  .loading-text
+  {
+    color: $main-color;
+  }
 }

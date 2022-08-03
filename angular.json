@@ -23,6 +23,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "http",
+              "https"
+            ],
             "outputPath": "dist/mdb5-angular-ui-kit-pro-advanced",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -37,7 +41,7 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/chart.js/dist/chart.js",
+              "node_modules/chart.js/dist/chart.js"
             ]
           },
           "configurations": {

@@ -13,14 +13,15 @@
 
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb ps-1">
-      <li class="breadcrumb-item active" aria-current="page">Trang chủ</li>
+      <li class="breadcrumb-item"><a routerLink="">Trang chủ</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{url}}</li>
     </ol>
   </nav>
 
   <div class="row">
     <div class="col col-12 col-lg-8">
       <mdb-carousel [controls]="true" [indicators]="true" [dark]="true">
-        <mdb-carousel-item *ngFor="let article of headingNews" (click)="viewDetails(article)" class="main-top-heading" [interval]="5000">
+        <mdb-carousel-item *ngFor="let article of currNews" (click)="viewDetails(article)" class="main-top-heading" [interval]="5000">
           <div class="card" style="height: 470px;">
             <img src="{{article.thumbnail}}" class="card-img-top"/>
             <div class="card-body">
@@ -36,7 +37,7 @@
 
     <!--Right-->
     <div class="col col-12 col-lg-4">
-      <div *ngFor="let article of headingNews.slice(0,3)" (click)="viewDetails(article)">
+      <div *ngFor="let article of currNews.slice(0,3)" (click)="viewDetails(article)">
         <div class="card mb-2 right-top-heading">
           <div class="row g-0">
             <div class="col-4 col-lg-5">
@@ -70,9 +71,9 @@
       </div>
 
       <div class="col col-12 col-lg-9">
-        <h6 class="heading-title"><i class="fas fa-fire-flame-curved"></i> TIN NÓNG</h6>
+        <h6 class="heading-title text-uppercase"><i class="fas fa-fire-flame-curved"></i> TIN {{url}} MỚI NHẤT</h6>
 
-        <div *ngFor="let article of headingNews.slice(3, headingNews.length)" (click)="viewDetails(article)">
+        <div *ngFor="let article of currNews.slice(3, currNews.length)" (click)="viewDetails(article)">
           <div class="card mb-2 body-top-heading">
             <div class="row g-0">
               <div class="col-4">
@@ -100,7 +101,3 @@
     </div>
   </div>
 </div>
-
-
-
-
