@@ -14,7 +14,7 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb ps-1">
       <li class="breadcrumb-item"><a routerLink="">Trang chủ</a></li>
-      <li class="breadcrumb-item active" aria-current="page">{{url}}</li>
+      <li class="breadcrumb-item active" aria-current="page">{{cateName}}</li>
     </ol>
   </nav>
 
@@ -71,7 +71,7 @@
       </div>
 
       <div class="col col-12 col-lg-9">
-        <h6 class="heading-title text-uppercase"><i class="fas fa-fire-flame-curved"></i> TIN {{url}} MỚI NHẤT</h6>
+        <h6 class="heading-title text-uppercase"><i class="fas fa-fire-flame-curved"></i>&ensp;TIN {{cateName}} MỚI NHẤT</h6>
 
         <div *ngFor="let article of currNews.slice(3, currNews.length)" (click)="viewDetails(article)">
           <div class="card mb-2 body-top-heading">

@@ -13,6 +13,7 @@ export class CateNewsComponent implements OnInit {
 
   url: any;
   currNews:any = []; //Mảng chứa tin từ api
+  cateName:string = "";
   status = "loading";
 
   ngOnInit(): void {
@@ -21,12 +22,14 @@ export class CateNewsComponent implements OnInit {
 
     this.service.getNewsFeed(this.url).subscribe((result)=>{
       this.currNews = this.service.snippetContent(result).items; //Tỉa content + gán mảng
+      this.cateName = this.service.getFeedTitle(result); //lấy tên mục để hiển thị
       this.status = result.status;
+      sessionStorage.removeItem('details'); //xoá bài viết đang xem khi về mục
     })
   }
 
   viewDetails(article: any){ //Xem chi tiết bài
-    this.service.currArticles = article;
-    this.router.navigate(['/details']);
+    this.service.setCurrArticle(article); //gán bài lên session
+    this.router.navigate(['/details']); //chuyển trang details
   }
 }
