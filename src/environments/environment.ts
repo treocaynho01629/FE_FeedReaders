@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   apiUrl: "https://api.rss2json.com/v1/",
   newsSource: "https://baotintuc.vn/",
+  apiKey: "fsfssy5zgujindj4lukvkmpogsb9rzobyvfp4wak",
 };
 
 /*

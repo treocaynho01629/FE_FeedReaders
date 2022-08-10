@@ -11,8 +11,7 @@ export class HeadingComponent implements OnInit {
 
   constructor(private service:NewsParseAPIService, private router:Router) { }
 
-  //Mảng chứa bài viết
-  headingNews:any = [];
+  headingNews:any = []; //Mảng chứa bài viết
   status = "loading";
 
   ngOnInit() {
@@ -20,11 +19,12 @@ export class HeadingComponent implements OnInit {
     this.service.getNewsFeed("tin-moi-nhat.rss").subscribe((result)=>{
       this.headingNews = this.service.snippetContent(result).items; //Tỉa content + gán mảng
       this.status = result.status;
+      sessionStorage.removeItem('details'); //xoá bài viết đang xem khi về trang chủ
     })
   }
 
   viewDetails(article: any){ //Xem chi tiết bài
-    this.service.currArticles = article;
-    this.router.navigate(['/details']);
+    this.service.setCurrArticle(article); //gán bài lên session
+    this.router.navigate(['/details']); //chuyển trang details
   }
 }

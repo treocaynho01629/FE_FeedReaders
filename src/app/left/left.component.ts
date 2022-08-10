@@ -19,25 +19,25 @@ export class LeftComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.service.getNewsFeed("thoi-su.rss").subscribe((result)=>{
-      this.ranNews = result.items;
+    this.service.getNewsFeed("thoi-su.rss", 5).subscribe((result)=>{
+      this.ranNews = this.service.snippetContent(result).items;
     })
 
     this.service.getNewsFeed("video.rss").subscribe((result)=>{
-      this.videos = result.items;
+      this.videos = this.service.snippetContent(result).items;
     })
 
     this.service.getNewsFeed("anh.rss").subscribe((result)=>{
-      this.images = result.items;
+      this.images = this.service.snippetContent(result).items;
     })
 
     this.service.getNewsFeed("infographics.rss").subscribe((result)=>{
-      this.infoNews = result.items;
+      this.infoNews = this.service.snippetContent(result).items;
     })
   }
 
   viewDetails(article: any){
-    this.service.currArticles = article;
+    this.service.setCurrArticle(article);
 
     this.router.routeReuseStrategy.shouldReuseRoute = () => false; //reload router
     this.router.onSameUrlNavigation = 'reload';

@@ -121,8 +121,6 @@ $main-color: #63e399;
 
 .page-loader
 {
-  height: 100%;
-  width: 100%;
   z-index: 1029;
   margin-top: 10%;
 
@@ -133,6 +131,6 @@ $main-color: #63e399;
 
   .loading-text
   {
-    color: $main-color;
+    color: black;
   }
 }

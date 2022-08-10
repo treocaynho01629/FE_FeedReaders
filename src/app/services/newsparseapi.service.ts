@@ -6,6 +6,7 @@ import {environment} from "../../environments/environment";
 //import
 const API_URL = environment.apiUrl;
 const RSS_SOURCE = environment.newsSource;
+const API_KEY = environment.apiKey;
 
 // @ts-ignore
 @Injectable({
@@ -16,8 +17,8 @@ export class NewsParseAPIService {
   constructor(private http:HttpClient) {
   }
 
-  currArticles: any;
-  currCate: any;
+  currArticle: any; //bài chi tiết
+  currCate: any; //category đang chọn
   categories = [
     {name: 'Thời sự', url: 'thoi-su.rss'},
     {name: 'Khoa học - Công nghệ', url: 'khoa-hoc-cong-nghe.rss'},
@@ -29,11 +30,15 @@ export class NewsParseAPIService {
     {name: 'Thể thao', url: 'the-thao.rss'},
     {name: 'Hồ sơ', url: 'ho-so.rss'},
     {name: 'Quân sự', url: 'quan-su.rss'},
+    {name: 'Biển đảo', url: 'bien-dao-viet-nam.rss'},
+    {name: 'Y tế', url: 'suc-khoe.rss'},
+    {name: 'Địa phương', url: 'dia-phuong.rss'},
+    {name: 'Video', url: 'video.rss'},
   ];
 
   //Fetch bài từ rss
-  getNewsFeed(url: any):Observable<any>{
-    return this.http.get(`${API_URL}api.json?rss_url=${RSS_SOURCE}${url}`);
+  getNewsFeed(url: any, count: number = 10):Observable<any>{
+    return this.http.get(`${API_URL}api.json?rss_url=${RSS_SOURCE}${url}&api_key=${API_KEY}&count=${count}`);
   }
 
   //Cắt tỉa content
@@ -49,5 +54,20 @@ export class NewsParseAPIService {
       item.content = temp.substr(start, end - start + 1);
     });
     return feed;
+  }
+
+  //lấy tên feed (category) từ tittle của feed
+  getFeedTitle(feed: any){
+    var temp = feed.feed.title;
+    let start = temp.indexOf("-") + 1;
+    let end = temp.lastIndexOf("-") - 1;
+    let result = temp.substr(start, end - start + 1);
+    return result;
+  }
+
+  //gán bài chi tiết vào session
+  setCurrArticle(article: any) {
+    this.currArticle = article;
+    sessionStorage.setItem('details', JSON.stringify(this.currArticle));
   }
 }

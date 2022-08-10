@@ -1,5 +1,5 @@
 <div>
-  <h6 class="heading-title"><i class="fas fa-crosshairs"></i> TIÊU ĐIỂM</h6>
+  <h6 class="heading-title"><i class="fas fa-crosshairs"></i>&ensp;TIÊU ĐIỂM</h6>
 
   <ol class="list-group list-group-light list-group-numbered">
     <li *ngFor="let article of ranNews.slice(0, 5)" (click)="viewDetails(article)" class="list-group-item d-flex justify-content-between align-items-start">
@@ -9,7 +9,7 @@
     </li>
   </ol>
 
-  <h6 class="heading-title"><i class="fas fa-video"></i>  VIDEOS</h6>
+  <h6 class="heading-title"><i class="fas fa-video"></i>&ensp;VIDEOS</h6>
 
   <mdb-carousel *ngIf="videos.length != 0" [controls]="true" class="mb-2">
     <mdb-carousel-item *ngFor="let video of videos;" (click)="viewDetails(video)" class="display-img">
@@ -26,7 +26,7 @@
     </mdb-carousel-item>
   </mdb-carousel>
 
-  <h6 class="heading-title"><i class="fas fa-camera"></i>  ẢNH</h6>
+  <h6 class="heading-title"><i class="fas fa-camera"></i>&ensp;ẢNH</h6>
 
   <mdb-carousel *ngIf="images.length != 0" [controls]="true" class="mb-2">
     <mdb-carousel-item *ngFor="let image of images;" (click)="viewDetails(image)" class="display-img">
@@ -43,7 +43,7 @@
     </mdb-carousel-item>
   </mdb-carousel>
 
-  <h6 class="heading-title"><i class="fas fa-circle-info"></i> INFOGRAPHICS</h6>
+  <h6 class="heading-title"><i class="fas fa-circle-info"></i>&ensp;INFOGRAPHICS</h6>
 
   <mdb-carousel *ngIf="infoNews.length != 0" [controls]="true" class="mb-2">
     <mdb-carousel-item *ngFor="let article of infoNews;" (click)="viewDetails(article)" class="display-img">
