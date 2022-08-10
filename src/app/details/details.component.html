@@ -1,0 +1,63 @@
+<br>
+
+<div *ngIf="status == 'loading'" class="page-loader" #container>
+  <mdb-loading [show]="true" [container]="container">
+    <div class="loading-spinner">
+      <div class="spinner-border loading-icon" role="status"></div>
+      <span class="loading-text">Đang tải...</span>
+    </div>
+  </mdb-loading>
+</div>
+
+<div *ngIf="article != null" class="container-fluid ps-5 pe-5" >
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb ps-1">
+      <li class="breadcrumb-item"><a routerLink="">Trang chủ</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{article.title}}</li>
+    </ol>
+  </nav>
+
+  <div class="container-fluid mt-5">
+    <div class="row">
+      <div class="col col-12 col-lg-9">
+        <div class="container">
+          <div class="row">
+            <h1 class="g-0 p-1">{{article.title}}</h1>
+          </div>
+          <div class="row border-top border-bottom py-2">
+            <div class="d-flex justify-content-between g-0 p-1">
+              Ngày xuất bản: {{article.pubDate}}
+
+              <div class="d-flex flex-row">
+                <a class="me-3" style="color: #3b5998;" href="#!" role="button">
+                  <i class="fab fa-facebook-f fa-lg"></i>
+                </a>
+                <a class="me-3" style="color: #55acee;" href="#!" role="button">
+                  <i class="fab fa-twitter fa-lg"></i>
+                </a>
+               <a class="me-3" style="color: #dd4b39;" href="#!" role="button">
+                  <i class="fab fa-google fa-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <img class="my-4" style="width: 90%" src="{{article.thumbnail}}">
+          </div>
+          <span>&emsp;{{article.content}}</span>
+          <div class="text-center">
+            <br>
+            <a href="{{article.link}}" class="btn btn-primary" style="background-color: #63e399;" type="button">
+              <i class="fas fa-forward-step fa-lg"></i>&ensp;Đọc tiếp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col col-12 col-lg-3">
+        <app-left></app-left>
+      </div>
+    </div>
+  </div>
+</div>
