@@ -1,16 +1,53 @@
 .nav-top {
   padding-top: 0px;
-  padding-bottom: 0px;
-}
+  padding-bottom: 0px; }
 
 .nav-info a {
   font-size: 12px;
   color: #696763;
-}
+  transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s; }
+  .nav-info a:hover {
+    color: #63e399;
+    transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s; }
 
 .nav-icon a {
   font-size: 14px;
   color: #696763;
-}
+  transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s; }
+  .nav-icon a:hover {
+    transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s; }
+  .nav-icon a .fa-facebook:hover {
+    color: #3b5998; }
+  .nav-icon a .fa-twitter:hover {
+    color: #55acee; }
+  .nav-icon a .fa-google:hover {
+    color: #dd4b39; }
+
+.cate-item .nav-link {
+  color: #696763;
+  transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s; }
+  .cate-item .nav-link:hover {
+    color: #63e399;
+    transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s; }
+.cate-item .active {
+  color: #63e399; }
 
 /*# sourceMappingURL=navigation.component.css.map */

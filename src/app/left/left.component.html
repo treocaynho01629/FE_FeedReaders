@@ -1,8 +1,9 @@
 <div>
   <h6 class="heading-title"><i class="fas fa-crosshairs"></i>&ensp;TIÊU ĐIỂM</h6>
 
-  <ol class="list-group list-group-light list-group-numbered">
-    <li *ngFor="let article of ranNews.slice(0, 5)" (click)="viewDetails(article)" class="list-group-item d-flex justify-content-between align-items-start">
+  <ol class="list-group list-group-light mb-2">
+    <li *ngFor="let article of ranNews.slice(0, 5)" (click)="viewDetails(article)"
+        class="list-group-item d-flex justify-content-center align-items-start px-1 py-0 mt-2">
       <div class="ms-2 me-auto">
         <p class="ran-title fw-bold">{{article.title}}</p>
       </div>
@@ -12,15 +13,15 @@
   <h6 class="heading-title"><i class="fas fa-video"></i>&ensp;VIDEOS</h6>
 
   <mdb-carousel *ngIf="videos.length != 0" [controls]="true" class="mb-2">
-    <mdb-carousel-item *ngFor="let video of videos;" (click)="viewDetails(video)" class="display-img">
+    <mdb-carousel-item *ngFor="let video of videos;" (click)="viewDetails(video)" class="display-img" [interval]="15000">
       <div>
         <img
           src="{{video.thumbnail}}"
         />
       </div>
-      <div class="mask" style="background-color: rgba(0, 0, 0, 0.4);">
-        <div class="carousel-caption d-none d-md-block">
-          <p class="text-white">{{video.title}}</p>
+      <div class="mask">
+        <div class="carousel-caption">
+          <p>{{video.title}}</p>
         </div>
       </div>
     </mdb-carousel-item>
@@ -29,15 +30,15 @@
   <h6 class="heading-title"><i class="fas fa-camera"></i>&ensp;ẢNH</h6>
 
   <mdb-carousel *ngIf="images.length != 0" [controls]="true" class="mb-2">
-    <mdb-carousel-item *ngFor="let image of images;" (click)="viewDetails(image)" class="display-img">
+    <mdb-carousel-item *ngFor="let image of images;" (click)="viewDetails(image)" class="display-img" [interval]="15000">
       <div>
         <img
           src="{{image.thumbnail}}"
         />
       </div>
-      <div class="mask" style="background-color: rgba(0, 0, 0, 0.4);">
-        <div class="carousel-caption d-none d-md-block">
-          <p class="text-white">{{image.title}}</p>
+      <div class="mask">
+        <div class="carousel-caption">
+          <p>{{image.title}}</p>
         </div>
       </div>
     </mdb-carousel-item>
@@ -46,42 +47,19 @@
   <h6 class="heading-title"><i class="fas fa-circle-info"></i>&ensp;INFOGRAPHICS</h6>
 
   <mdb-carousel *ngIf="infoNews.length != 0" [controls]="true" class="mb-2">
-    <mdb-carousel-item *ngFor="let article of infoNews;" (click)="viewDetails(article)" class="display-img">
+    <mdb-carousel-item *ngFor="let article of infoNews;" (click)="viewDetails(article)" class="display-img" [interval]="15000">
       <div>
         <img
           src="{{article.thumbnail}}"
         />
       </div>
-      <div class="mask" style="background-color: rgba(0, 0, 0, 0.4);">
-        <div class="carousel-caption d-none d-md-block">
-          <p class="text-white">{{article.title}}</p>
+      <div class="mask">
+        <div class="carousel-caption">
+          <p>{{article.title}}</p>
         </div>
       </div>
     </mdb-carousel-item>
   </mdb-carousel>
-
-  <!--<h6 class="heading-title">TIN ĐỌC NHIỀU</h6>
-
-  <div *ngFor="let article of topNews.slice(0, 5); let i=index">
-    <div class="card mb-2 left-news-heading">
-      <div class="row g-0">
-        <div class="col-3 col-lg-5">
-          <a href="{{article.link}}">
-            <img
-              src="{{article.thumbnail}}"
-              class="img-fluid rounded-start"
-            />
-          </a>
-        </div>
-        <div class="col-9 col-lg-7">
-          <div class="card-body">
-            <a href="{{article.link}}">
-              <h6 class="card-title" style="text-overflow: ellipsis;">{{article.title}}</h6>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>-->
-
 </div>
+
+

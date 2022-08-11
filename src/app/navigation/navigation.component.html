@@ -32,7 +32,7 @@
 
 <!--header-middle-->
 <nav class="navbar navbar-light border-bottom" style="background-color: white">
-  <div class="container">
+  <div class="container justify-content-between">
     <a class="navbar-brand" routerLink="">
       <img
         src="./assets/images/bell.png"
@@ -44,8 +44,19 @@
         <span style="color: #63e399"> RING!&nbsp; </span>
         <span> - NEWS</span>
       </a>
-
     </a>
+
+    <form class="d-flex input-group w-auto">
+      <input
+        type="search"
+        class="form-control rounded"
+        placeholder="Tìm kiếm ..."
+        aria-label="Search"
+      />
+      <span class="input-group-text border-0" id="search-addon">
+        <i class="fas fa-search"></i>
+      </span>
+    </form>
   </div>
 </nav> <!--header-middle-->
 
@@ -66,16 +77,11 @@
          mdbCollapse
          #basicNav="mdbCollapse"
     >
-      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 cate-item">
         <li *ngFor="let category of categories" (click)="viewCate(category)" class="nav-item">
-          <a class="nav-link">{{category.name}}</a>
+          <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/category/',  category.url ]">{{category.name}}</a>
         </li>
       </ul>
-
-     <!-- <form class="w-auto">
-        <input type="search" class="form-control" placeholder="Tìm kiếm..." aria-label="Search">
-      </form>-->
-
     </div>
   </div>
 </nav>
