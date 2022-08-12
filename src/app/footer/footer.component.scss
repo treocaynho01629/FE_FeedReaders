@@ -1,3 +1,6 @@
+$main-color: #63e399;
+$text-color: #696763;
+
 footer
 {
   margin-top: 5%;
@@ -6,4 +9,56 @@ footer
   {
     color: inherit;
   }
+
+  .top-footer
+  {
+    span
+    {
+      color: $text-color;
+      font-weight: 500;
+    }
+
+    a
+    {
+      color: $text-color;
+      transition: all 0.5s ease 0s;
+      -moz-transition: all 0.5s ease 0s;
+      -webkit-transition: all 0.5s ease 0s;
+      -o-transition: all 0.5s ease 0s;
+
+      &:hover
+      {
+        transition: all 0.5s ease 0s;
+        -moz-transition: all 0.5s ease 0s;
+        -webkit-transition: all 0.5s ease 0s;
+        -o-transition: all 0.5s ease 0s;
+      }
+
+      .fa-facebook-f
+      {
+        &:hover
+        {
+          color: #3b5998;
+        }
+      }
+
+      .fa-twitter
+      {
+        &:hover
+        {
+          color: #55acee;
+        }
+      }
+
+      .fa-google
+      {
+        &:hover
+        {
+          color: #dd4b39;
+        }
+      }
+    }
+  }
 }
+
+

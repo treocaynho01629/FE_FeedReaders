@@ -1,42 +1,48 @@
 .ran-title {
   color: inherit;
-  font-size: 13px;
+  font-size: 14px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-}
+  cursor: pointer;
+  transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s; }
+  .ran-title:hover {
+    color: #63e399;
+    transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s; }
 
 .left-news-heading {
   min-height: 80px;
-  max-height: 100px;
-}
-.left-news-heading img {
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: center center;
-  vertical-align: middle;
-  min-height: 80px;
-  max-height: 100px;
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
-}
-.left-news-heading h6 {
-  font-size: 14px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.left-news-heading a {
-  color: inherit;
-}
+  max-height: 100px; }
+  .left-news-heading img {
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    vertical-align: middle;
+    min-height: 80px;
+    max-height: 100px;
+    object-fit: cover;
+    height: 100%;
+    width: 100%; }
+  .left-news-heading h6 {
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .left-news-heading a {
+    color: inherit; }
 
 .display-img img {
-  min-height: 140px;
+  min-height: 160px;
   max-height: 160px;
   background-size: auto;
   background-repeat: no-repeat;
@@ -44,12 +50,34 @@
   vertical-align: middle;
   object-fit: cover;
   height: 100%;
-  width: 100%;
-}
-.display-img .carousel-caption {
-  bottom: 0;
-  top: auto;
-  color: whitesmoke;
-}
+  width: 100%; }
+.display-img .mask {
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s; }
+  .display-img .mask .carousel-caption {
+    bottom: 0;
+    top: auto;
+    color: whitesmoke;
+    cursor: pointer; }
+    .display-img .mask .carousel-caption p {
+      transition: all 0.5s ease 0s;
+      -moz-transition: all 0.5s ease 0s;
+      -webkit-transition: all 0.5s ease 0s;
+      -o-transition: all 0.5s ease 0s; }
+      .display-img .mask .carousel-caption p:hover {
+        color: transparent;
+        transition: all 0.5s ease 0s;
+        -moz-transition: all 0.5s ease 0s;
+        -webkit-transition: all 0.5s ease 0s;
+        -o-transition: all 0.5s ease 0s; }
+  .display-img .mask:hover {
+    background-color: transparent;
+    transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s; }
 
 /*# sourceMappingURL=left.component.css.map */

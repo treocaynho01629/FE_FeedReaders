@@ -1,1 +1,7 @@
-{"version":3,"sourceRoot":"","sources":["footer.component.scss"],"names":[],"mappings":"AAAA;EAEE;;AAEA;EAEE","file":"footer.component.css"}
+{
+"version": 3,
+"mappings": "AAGA,MACA;EACE,UAAU,EAAE,EAAE;EAEd,QACA;IACE,KAAK,EAAE,OAAO;EAKd,uBACA;IACE,KAAK,EAfE,OAAO;IAgBd,WAAW,EAAE,GAAG;EAGlB,oBACA;IACE,KAAK,EArBE,OAAO;IAsBd,UAAU,EAAE,gBAAgB;IAC5B,eAAe,EAAE,gBAAgB;IACjC,kBAAkB,EAAE,gBAAgB;IACpC,aAAa,EAAE,gBAAgB;IAE/B,0BACA;MACE,UAAU,EAAE,gBAAgB;MAC5B,eAAe,EAAE,gBAAgB;MACjC,kBAAkB,EAAE,gBAAgB;MACpC,aAAa,EAAE,gBAAgB;IAK/B,yCACA;MACE,KAAK,EAAE,OAAO;IAMhB,sCACA;MACE,KAAK,EAAE,OAAO;IAMhB,qCACA;MACE,KAAK,EAAE,OAAO",
+"sources": ["footer.component.scss"],
+"names": [],
+"file": "footer.component.css"
+}
