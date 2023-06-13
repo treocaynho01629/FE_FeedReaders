@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsParseAPIService } from '../services/newsparseapi.service';
-import {ActivatedRoute, Router} from "@angular/router";
+import { NewsapiService } from '../services/newsapi.service';
+import {ActivatedRoute} from "@angular/router";
+import { Feeds } from '../models/Feeds';
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-cate-news',
@@ -9,27 +11,42 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class CateNewsComponent implements OnInit {
 
-  constructor(private service:NewsParseAPIService, private activeRouter:ActivatedRoute, private router:Router) { }
+  constructor(private service:NewsapiService, private activeRoute:ActivatedRoute, private title:Title) { }
 
-  url: any;
-  currNews:any = []; //Mảng chứa tin từ api
-  cateName:string = "";
-  status = "loading";
+  feeds: Feeds = new Feeds();
+  currCate: string = "";
+  apiCall: any;
+  ranCates: Map<string, string> = new Map<string, string>(); //for carousel
 
   ngOnInit(): void {
+    this.activeRoute.params.subscribe(({ cate }) => {
+      //Set title
+      const fullCates = new Map([...this.service.categories, ...this.service.medias]);
+      this.title.setTitle('RING!-NEWS - ' + fullCates.get(cate)!);
 
-    this.url = this.activeRouter.snapshot.paramMap.get('url'); //lấy mục hiện tại
+      //Get random cate for carousel
+      let cates = new Map([...this.service.categories]);
+      cates.delete(cate);
+      this.ranCates = new Map([...cates.entries()].sort((a, b) => 0.5 - Math.random()).splice(0, 3));
+      this.currCate = cate;
 
-    this.service.getNewsFeed(this.url).subscribe((result)=>{
-      this.currNews = this.service.snippetContent(result).items; //Tỉa content + gán mảng
-      this.cateName = this.service.getFeedTitle(result); //lấy tên mục để hiển thị
-      this.status = result.status;
-      sessionStorage.removeItem('details'); //xoá bài viết đang xem khi về mục
-    })
+      //Load feeds
+      this.loadFeeds(cate)
+    });
   }
 
-  viewDetails(article: any){ //Xem chi tiết bài
-    this.service.setCurrArticle(article); //gán bài lên session
-    this.router.navigate(['/details']); //chuyển trang details
+  ngOnDestroy(){
+    this.apiCall.unsubscribe();
+  }
+
+  loadFeeds(cate: string): void {
+    this.feeds.status = "loading";
+    this.apiCall && this.apiCall.unsubscribe();
+    this.apiCall = this.service.getNewsFeed(cate)
+      .subscribe((response) => {
+        this.feeds = this.service.scrapFeeds(response);
+      }, (error) => {
+        console.error(error);
+    })
   }
 }

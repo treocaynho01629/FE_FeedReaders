@@ -1,0 +1,114 @@
+$main-color: #63e399;
+$text-color: #696763;
+
+.cate-list
+{
+  list-style-type: none;
+  display: flex;
+  background-color: $main-color;
+  border-radius: 3px;
+  padding: 0.3rem 0.3rem 0.3rem 0.8rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  white-space: nowrap;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cate-item
+  {
+    color: white;
+    margin-right: 15px;
+    text-transform: uppercase;
+
+    &:hover
+    {
+      text-decoration: underline;
+    }
+
+    &:first-child
+    {
+      a {
+        margin-left: 10px;
+        font-size: 18px;
+        font-weight: 450;
+        color: $text-color;
+        padding: 0 5px 0 5px;
+        border-left: 8px solid $text-color;
+        border-right: 3px double $text-color;
+      }
+    }
+  }
+}
+
+.carousel-heading-item
+{
+  transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+
+  img
+  {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .card-img-placeholder
+  {
+    height: 200px;
+    width: 100%;
+    cursor: pointer;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+
+  .card-title
+  {
+    font-weight: bold;
+    min-height: 57px;
+    line-height: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+    @supports (-webkit-line-clamp: 3) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: initial;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  &:hover{
+    color: $main-color;
+  }
+}
+
+.carousel-button
+{
+  font-size: 10px;
+  background-color: $main-color;
+  opacity: 0.75;
+  top: 40%;
+  z-index: 10;
+  height: 50px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease 0s;
+
+  &:hover{
+    transition: all 0.5s ease 0s;
+    background-color: white;
+    color: $text-color;
+  }
+}

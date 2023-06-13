@@ -1,0 +1,70 @@
+<div *ngIf="feeds.status == 'ok'" class="container-fluid p-0 mb-3">
+  <ul class="cate-list">
+    <li *ngFor="let category of categories | keyvalue: returnZero" class="nav-item cate-item">
+      <a [routerLink]="[ category.key ]">{{category.value}}</a>
+    </li>
+  </ul>
+
+  <div style="position: relative">
+    <div class="row d-flex justify-content-between">
+      <ng-container *ngFor="let article of feeds.feeds; let i = index">
+        <div [hidden]="!(i < curr + amount && i >= curr)" class="col-lg-3 col-md-4 col-sm-6 col-12">
+          <div class="card carousel-heading-item">
+            <a [routerLinkActive]="['active']" [routerLink]="['/' + article.cate, article.link]">
+              <img
+                src="{{article.thumbnail}}"
+                loading="lazy"
+              />
+            </a>
+            <div class="card-body">
+              <a [routerLinkActive]="['active']" [routerLink]="['/' + article.cate, article.link]">
+                <p class="card-title">{{article.title}}</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <p class="carousel-control-prev carousel-button" role="button" data-slide="prev" (click)="prev()">
+      <span class="carousel-control-prev-icon" style="display: flex; align-items: center; justify-content: center" aria-hidden="true"></span>
+    </p>
+    <p class="carousel-control-next carousel-button" role="button" data-slide="next" (click)="next()">
+      <span class="carousel-control-next-icon" style="display: flex; align-items: center; justify-content: center" aria-hidden="true"></span>
+    </p>
+  </div>
+</div>
+
+<div *ngIf="feeds.status == 'loading'" class="container-fluid p-0 mb-3">
+  <div class="cate-list placeholder-glow">
+    <h6 class="d-flex align align-items-center my-1" style="width: 100%">
+      <span class="placeholder col-1 ms-2 me-3" style="height: 22px"></span>
+      <span class="placeholder col-1 me-3" style="height: 19px"></span>
+      <span class="placeholder col-2 me-3" style="height: 19px"></span>
+    </h6>
+  </div>
+
+  <div style="position: relative">
+    <div class="row d-flex justify-content-between">
+      <ng-container *ngFor="let e of [].constructor(4); let i = index">
+        <div [hidden]="!(i < curr + amount && i >= curr)" class="col-lg-3 col-md-4 col-sm-6 col-12">
+          <div class="card carousel-heading-item">
+            <div class="rounded-top card-img-placeholder">Đang tải...</div>
+            <div class="card-body">
+              <p class="card-text">
+                <span class="placeholder col-12"></span>
+                <span class="placeholder col-12"></span>
+                <span class="placeholder col-3"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <p class="carousel-control-prev carousel-button" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" style="display: flex; align-items: center; justify-content: center" aria-hidden="true"></span>
+    </p>
+    <p class="carousel-control-next carousel-button" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" style="display: flex; align-items: center; justify-content: center" aria-hidden="true"></span>
+    </p>
+  </div>
+</div>

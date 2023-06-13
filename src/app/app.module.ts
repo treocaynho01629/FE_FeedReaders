@@ -49,16 +49,20 @@ import { MdbStorageManagementService } from 'mdb-angular-storage-management';
 import { MdbOnboardingModule } from 'mdb-angular-onboarding';
 import { HeadingComponent } from './heading/heading.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NewsParseAPIService } from './services/newsparseapi.service';
+import { NewsapiService } from './services/newsapi.service';
 import { AppRoutingModule } from './app-routing.module';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
 import { CateNewsComponent } from './cate-news/cate-news.component';
-import { LeftComponent } from './left/left.component';
+import { SideComponent } from './side/side.component';
 import { DetailsComponent } from './details/details.component';
+import { TopHeadingComponent } from './top-heading/top-heading.component';
+import { MainHeadingComponent } from './main-heading/main-heading.component';
+import { HeadingCarouselComponent } from './heading-carousel/heading-carousel.component';
+import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 
 @NgModule({
-  declarations: [AppComponent, HeadingComponent, NavigationComponent, FooterComponent, CateNewsComponent, LeftComponent, DetailsComponent],
+  declarations: [AppComponent, HeadingComponent, NavigationComponent, FooterComponent, CateNewsComponent, SideComponent, DetailsComponent, TopHeadingComponent, MainHeadingComponent, HeadingCarouselComponent, ScrollToTopComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -107,7 +111,7 @@ import { DetailsComponent } from './details/details.component';
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [MdbCookiesManagementService, MdbStorageManagementService, NewsParseAPIService],
+  providers: [MdbCookiesManagementService, MdbStorageManagementService, NewsapiService],
   bootstrap: [AppComponent],
   exports: [
     NavigationComponent

@@ -1,27 +1,57 @@
 <br>
 
-<div *ngIf="status == 'loading'" class="page-loader" #container>
-  <mdb-loading [show]="true" [container]="container">
-    <div class="loading-spinner">
-      <div class="spinner-border loading-icon" role="status"></div>
-      <span class="loading-text">Đang tải...</span>
-    </div>
-  </mdb-loading>
-</div>
+<div class="container-xl" >
+  <nav *ngIf="status == 'loading'" class="placeholder-glow" aria-label="breadcrumb">
+    <span class="placeholder col-1"></span>
+  </nav>
 
-<div *ngIf="article != null" class="container-fluid ps-5 pe-5" >
-
-  <nav aria-label="breadcrumb">
+  <nav *ngIf="status != 'loading'" aria-label="breadcrumb">
     <ol class="breadcrumb ps-1">
       <li class="breadcrumb-item"><a routerLink="">Trang chủ</a></li>
+      <li class="breadcrumb-item"><a [routerLink]="['../' + currCate]">{{currCateName}}</a></li>
       <li class="breadcrumb-item active" aria-current="page">{{article.title}}</li>
     </ol>
   </nav>
 
-  <div class="container-fluid mt-3">
+  <div class="container-xl g-0 p-0 my-3">
     <div class="row">
-      <div class="col col-12 col-lg-9">
-        <div class="container">
+      <div class="col col-12 col-lg-8">
+
+        <div *ngIf="status == 'loading'" >
+          <div class="row">
+            <h1 class="placeholder-glow">
+              <span class="placeholder col-12"></span>
+              <span class="placeholder col-2"></span>
+            </h1>
+          </div>
+          <div class="row border-top border-bottom py-2">
+            <div class="d-flex justify-content-between g-0 p-1 placeholder-glow">
+              <span class="placeholder col-4"></span>
+
+              <div class="d-flex flex-row">
+                <a class="me-3" style="color: #3b5998;" href="#!" role="button">
+                  <i class="fab fa-facebook-f fa-lg"></i>
+                </a>
+                <a class="me-3" style="color: #55acee;" href="#!" role="button">
+                  <i class="fab fa-twitter fa-lg"></i>
+                </a>
+                <a class="me-3" style="color: #dd4b39;" href="#!" role="button">
+                  <i class="fab fa-google fa-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="page-loader" #container>
+            <mdb-loading [show]="true" [container]="container">
+              <div class="loading-spinner">
+                <div class="spinner-border loading-icon" role="status"></div>
+                <span class="loading-text">Đang tải...</span>
+              </div>
+            </mdb-loading>
+          </div>
+        </div>
+
+        <div *ngIf="status != 'loading'" class="g-0">
           <div class="row">
             <h1 class="g-0 p-1">{{article.title}}</h1>
           </div>
@@ -42,22 +72,80 @@
               </div>
             </div>
           </div>
-          <div class="text-center">
-            <img class="my-4" style="width: 90%" src="{{article.thumbnail}}">
-          </div>
-          <span>&emsp;{{article.content}}</span>
-          <div class="text-center">
-            <br>
-            <a href="{{article.link}}" class="btn btn-primary" style="background-color: #63e399;" type="button">
-              <i class="fas fa-forward-step fa-lg"></i>&ensp;Đọc tiếp
-            </a>
-          </div>
+          <div class="container-xl g-0 my-3 content" [innerHTML]="article.fullContent"></div>
+          <figure class="text-end my-3">
+            <figcaption class="blockquote-footer">
+              Người viết: <cite title="{{article.author}}">{{article.author}}</cite>
+            </figcaption>
+          </figure>
         </div>
       </div>
 
-      <div class="col col-12 col-lg-3">
-        <app-left></app-left>
+      <div class="col col-12 col-lg-4">
+        <div *ngIf="article.related.status == 'ok'">
+          <h6 class="heading-title text-uppercase py-2 px-3">
+            &ensp;{{article.related.cateName}}
+          </h6>
+
+          <div *ngFor="let article of article.related.feeds">
+            <a [routerLinkActive]="['active']" [routerLink]="['/' + article.cate, article.link]">
+              <div class="card mb-2 right-top-heading">
+                <div class="row g-0">
+                  <div class="col-4 col-lg-5">
+                    <div class="image-container">
+                      <img
+                        src="{{article.thumbnail}}"
+                        loading="lazy"
+                        class="img-fluid rounded-start small-image"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-8 col-lg-7">
+                    <div class="card-body">
+                      <div>
+                        <h6 class="card-title">{{article.title}}</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div *ngIf="article.related.status == 'loading'">
+          <h6 class="heading-title text-uppercase py-2 px-3">
+            <span class="placeholder col-6 ms-3"></span>
+          </h6>
+
+          <div *ngFor="let e of [].constructor(5); let i = index">
+            <div class="card mb-2 right-top-heading">
+              <div class="row g-0">
+                <div class="col-4 col-lg-5">
+                  <div class="image-container">
+                    <div class="rounded-start card-img-placeholder">Đang tải...</div>
+                  </div>
+                </div>
+                <div class="col-8 col-lg-7">
+                  <div class="card-body">
+                    <div>
+                      <h6 class="card-title placeholder-glow">
+                        <span class="placeholder col-12"></span>
+                        <span class="placeholder col-12"></span>
+                        <span class="placeholder col-3"></span>
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <app-side></app-side>
       </div>
     </div>
   </div>
+
+  <app-heading-carousel [categories]="ranCates"></app-heading-carousel>
 </div>

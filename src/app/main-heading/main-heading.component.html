@@ -1,0 +1,67 @@
+<div *ngIf="feeds.status == 'ok'">
+  <h6 class="heading-title text-uppercase py-2 px-3">
+    <i class="fas fa-fire-flame-curved"></i>&ensp;TIN {{feeds.cateName}} MỚI NHẤT
+  </h6>
+
+  <div *ngFor="let article of feeds.feeds.slice(4, feeds.feeds.length)">
+    <div class="card mb-2 body-top-heading">
+      <div class="row g-0">
+        <div class="col-4">
+          <a [routerLinkActive]="['active']" [routerLink]="['/' + article.cate, article.link]">
+            <img
+              src="{{article.thumbnail}}"
+              loading="lazy"
+              class="img-fluid rounded-start"
+            />
+          </a>
+        </div>
+        <div class="col-8">
+          <div class="card-body">
+            <div>
+              <a [routerLinkActive]="['active']" [routerLink]="['/' + article.cate, article.link]">
+                <h6 class="card-title" style="text-overflow: ellipsis;">{{article.title}}</h6>
+              </a>
+            </div>
+            <p class="card-text content">
+              <small class="text-muted">{{article.content}}</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="feeds.status == 'loading'">
+  <h6 class="heading-title text-uppercase py-2 px-3 placeholder-glow">
+    <i class="fas fa-fire-flame-curved"></i>
+    <span class="placeholder col-4 ms-3"></span>
+  </h6>
+
+  <div *ngFor="let e of [].constructor(6); let i = index">
+    <div class="card mb-2 body-top-heading">
+      <div class="row g-0">
+        <div class="col-4">
+          <div class="rounded-start card-img-placeholder">Đang tải...</div>
+        </div>
+        <div class="col-8">
+          <div class="card-body">
+            <div>
+              <h6 class="card-title placeholder-glow">
+                <span class="placeholder col-12"></span>
+                <span class="placeholder col-2"></span>
+              </h6>
+            </div>
+            <p class="card-text">
+              <small class="text-muted placeholder-glow">
+                <span class="placeholder col-12"></span>
+                <span class="placeholder col-12"></span>
+                <span class="placeholder col-6"></span>
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

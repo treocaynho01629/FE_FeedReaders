@@ -1,0 +1,61 @@
+$main-color: #63e399;
+
+.body-top-heading
+{
+  min-height: 160px;
+  max-height: 160px;
+  transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+
+  img
+  {
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    vertical-align: middle;
+    min-height: 160px;
+    max-height: 160px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  .card-img-placeholder
+  {
+    min-height: 160px;
+    max-height: 160px;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+
+  h6
+  {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+  }
+
+  .content
+  {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &:hover{
+    color: $main-color;
+  }
+}

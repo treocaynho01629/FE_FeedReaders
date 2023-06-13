@@ -5,9 +5,9 @@ import { CateNewsComponent } from "./cate-news/cate-news.component";
 import { DetailsComponent } from "./details/details.component";
 
 const routes: Routes = [
-  {path:'',component:HeadingComponent}, //Trang chủ
-  {path:'category/:url',component:CateNewsComponent}, //Mục tin
-  {path:'details',component:DetailsComponent}, //Chi tiết
+  {path:'',component:HeadingComponent}, //Home
+  {path:':cate',component:CateNewsComponent}, //Category
+  {path:':cate/:path',component:DetailsComponent}, //Article
 ]
 
 @NgModule({

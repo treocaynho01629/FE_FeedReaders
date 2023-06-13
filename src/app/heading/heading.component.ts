@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsParseAPIService } from '../services/newsparseapi.service';
-import {Router} from "@angular/router";
+import { NewsapiService } from '../services/newsapi.service';
+import { Feeds } from "../models/Feeds";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-heading',
@@ -9,22 +10,32 @@ import {Router} from "@angular/router";
 })
 export class HeadingComponent implements OnInit {
 
-  constructor(private service:NewsParseAPIService, private router:Router) { }
+  constructor(private service:NewsapiService, private title:Title) { }
 
-  headingNews:any = []; //Mảng chứa bài viết
-  status = "loading";
+  feeds: Feeds = new Feeds();
+  apiCall: any;
+  medias: Map<string, string> = new Map<string, string>();
+  ranCates: Map<string, string> = new Map<string, string>();
 
   ngOnInit() {
-
-    this.service.getNewsFeed("tin-moi-nhat.rss").subscribe((result)=>{
-      this.headingNews = this.service.snippetContent(result).items; //Tỉa content + gán mảng
-      this.status = result.status;
-      sessionStorage.removeItem('details'); //xoá bài viết đang xem khi về trang chủ
-    })
+    this.title.setTitle('RING!-NEWS');
+    this.medias = this.service.medias;
+    this.ranCates = new Map([...this.service.categories.entries()].sort((a, b) => 0.5 - Math.random()).splice(0, 3));
+    this.loadFeeds()
   }
 
-  viewDetails(article: any){ //Xem chi tiết bài
-    this.service.setCurrArticle(article); //gán bài lên session
-    this.router.navigate(['/details']); //chuyển trang details
+  ngOnDestroy(){
+    this.apiCall.unsubscribe();
+  }
+
+  loadFeeds(): void {
+    this.feeds.status = "loading";
+    this.apiCall && this.apiCall.unsubscribe();
+    this.apiCall = this.service.getNewsFeed('tin-moi-nhat')
+      .subscribe((response) => {
+        this.feeds = this.service.scrapFeeds(response);
+      }, (error) => {
+        console.error(error);
+      })
   }
 }

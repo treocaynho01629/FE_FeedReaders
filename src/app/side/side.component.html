@@ -1,0 +1,84 @@
+<div>
+  <div *ngIf="latest.status == 'ok'">
+    <h6 class="heading-title py-2 px-3"><i class="fas fa-crosshairs"></i>&ensp;TIÊU ĐIỂM</h6>
+
+    <ol class="list-group list-group-light mb-2">
+      <li *ngFor="let article of latest.feeds.slice(0, 5)"
+          class="list-group-item d-flex justify-content-center align-items-start px-1 py-0 mt-2">
+        <div class="ms-2 me-auto">
+          <a [routerLinkActive]="['active']" [routerLink]="['/' + article.cate, article.link]">
+            <p class="ran-title fw-bold">{{article.title}}</p>
+          </a>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <div *ngIf="latest.status == 'loading'">
+    <h6 class="heading-title text-uppercase py-2 px-3 placeholder-glow">
+      <i class="fas fa-crosshairs"></i>
+      <span class="placeholder col-4 ms-3"></span>
+    </h6>
+
+    <ol class="list-group list-group-light mb-2">
+      <li *ngFor="let e of [].constructor(5); let i = index"
+          class="list-group-item d-flex justify-content-center align-items-start px-1 py-0 mt-2">
+        <div class="ms-2 me-auto w-100">
+          <p class="text-muted placeholder-glow" aria-hidden="true">
+            <span class="placeholder col-12"></span>
+            <span class="placeholder col-6"></span>
+          </p>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <div *ngFor="let feed of feeds; let i = index">
+    <div *ngIf="feed.status == 'ok'">
+      <h6 class="heading-title text-uppercase py-2 px-3">
+        <i *ngIf="i == 0" class="fas fa-medium"></i>
+        <i *ngIf="i == 1" class="fas fa-photo-film"></i>
+        <i *ngIf="i == 2" class="fas fa-compact-disc"></i>
+        &ensp;{{feed.cateName}}
+      </h6>
+
+      <mdb-carousel [controls]="true" class="mb-2" [interval]="0">
+        <mdb-carousel-item *ngFor="let article of feed.feeds;" class="display-img">
+          <div>
+            <img
+              src="{{article.thumbnail}}"
+              loading="lazy"
+            />
+          </div>
+          <div class="mask">
+            <a [routerLinkActive]="['active']" [routerLink]="['/' + article.cate, article.link]">
+              <div class="carousel-caption">
+                <p>{{article.title}}</p>
+              </div>
+            </a>
+          </div>
+        </mdb-carousel-item>
+      </mdb-carousel>
+    </div>
+
+    <div *ngIf="feed.status == 'loading'">
+      <h6 class="heading-title text-uppercase py-2 px-3">
+        <i *ngIf="i == 0" class="fas fa-medium"></i>
+        <i *ngIf="i == 1" class="fas fa-photo-film"></i>
+        <i *ngIf="i == 2" class="fas fa-compact-disc"></i>
+        <span class="placeholder col-6 ms-3"></span>
+      </h6>
+
+      <mdb-carousel [controls]="false" class="mb-2" [interval]="0">
+        <mdb-carousel-item class="display-img">
+          <div>
+            <div class="img-placeholder">Đang tải...</div>
+          </div>
+        </mdb-carousel-item>
+      </mdb-carousel>
+    </div>
+  </div>
+
+</div>
+
+

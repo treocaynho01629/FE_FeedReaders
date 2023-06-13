@@ -1,0 +1,107 @@
+<div class="row ms-2 me-auto mb-3">
+  <div *ngIf="feeds.status == 'ok'" class="carousel-container col col-12 col-lg-7">
+    <mdb-carousel [controls]="true" [indicators]="true" [dark]="true" [pause]="true" [interval]="10000">
+      <mdb-carousel-item *ngFor="let article of feeds.feeds" class="main-top-heading">
+        <div class="card h-600">
+          <a [routerLinkActive]="['active']" [routerLink]="['/' + article.cate, article.link]">
+            <img
+              src="{{article.thumbnail}}"
+              loading="lazy"
+              class="card-img-top"
+            />
+          </a>
+          <div class="card-body">
+            <div>
+              <a [routerLinkActive]="['active']" [routerLink]="['/' + article.cate, article.link]">
+                <h5 class="card-title">{{article.title}}</h5>
+              </a>
+            </div>
+            <p class="card-text content mb-3">{{article.content}}</p>
+          </div>
+        </div>
+      </mdb-carousel-item>
+    </mdb-carousel>
+  </div>
+
+  <div *ngIf="feeds.status == 'loading'" class="carousel-container col col-12 col-lg-7">
+    <mdb-carousel [controls]="false" [indicators]="true" [dark]="true" [pause]="true" [interval]="30000">
+      <mdb-carousel-item *ngFor="let e of [].constructor(10); let i = index" class="main-top-heading">
+        <div class="card h-600">
+          <div class="rounded-top card-img-placeholder">Đang tải...</div>
+          <div class="card-body">
+            <div>
+              <h5 class="card-title placeholder-glow">
+                <span class="placeholder col-10"></span>
+              </h5>
+            </div>
+            <p class="card-text placeholder-glow mb-3">
+              <span class="placeholder col-12"></span>
+              <span class="placeholder col-6"></span>
+            </p>
+          </div>
+        </div>
+      </mdb-carousel-item>
+    </mdb-carousel>
+  </div>
+
+  <!--Right-->
+  <div *ngIf="feeds.status == 'ok'" class="col col-12 col-lg-5">
+    <div *ngFor="let article of feeds.feeds.slice(0,4)">
+      <a [routerLinkActive]="['active']" [routerLink]="['/' + article.cate, article.link]">
+        <div class="card mb-2 right-top-heading">
+          <div class="row g-0">
+            <div class="col-4 col-lg-5">
+              <div class="image-container">
+                <img
+                  src="{{article.thumbnail}}"
+                  loading="lazy"
+                  class="img-fluid rounded-start small-image"
+                />
+              </div>
+            </div>
+            <div class="col-8 col-lg-7">
+              <div class="card-body">
+                <div>
+                  <h6 class="card-title" style="text-overflow: ellipsis;">{{article.title}}</h6>
+                </div>
+                <p class="card-text">
+                  <small class="text-muted">{{article.pubDate}}</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div *ngIf="feeds.status == 'loading'" class="col col-12 col-lg-5">
+    <div *ngFor="let e of [].constructor(4); let i = index">
+      <div class="card mb-2 right-top-heading">
+        <div class="row g-0">
+          <div class="col-4 col-lg-5">
+            <div class="image-container">
+              <div class="rounded-start card-img-placeholder">Đang tải...</div>
+            </div>
+          </div>
+          <div class="col-8 col-lg-7">
+            <div class="card-body">
+              <div>
+                <h6 class="card-title placeholder-glow">
+                  <span class="placeholder col-12"></span>
+                  <span class="placeholder col-12"></span>
+                  <span class="placeholder col-2"></span>
+                </h6>
+              </div>
+              <p class="card-text">
+                <small class="text-muted placeholder-glow">
+                  <span class="placeholder col-6"></span>
+                </small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

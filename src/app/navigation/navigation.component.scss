@@ -7,6 +7,22 @@ $text-color: #696763;
   padding-bottom: 0px;
 }
 
+.nav-cate
+{
+  white-space: nowrap;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.cate-item
+{
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .nav-info
 {
   a

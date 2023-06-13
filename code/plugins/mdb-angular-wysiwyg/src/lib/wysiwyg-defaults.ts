@@ -57,7 +57,7 @@ export const TEXT_FORMATING_ITEMS = [
 ];
 
 export const ALIGN_ITEMS = [
-  { type: 'justifyLeft', icon: 'fas fa-align-left' },
+  { type: 'justifyLeft', icon: 'fas fa-align-side' },
   { type: 'justifyCenter', icon: 'fas fa-align-center' },
   { type: 'justifyRight', icon: 'fas fa-align-right' },
   { type: 'justifyFull', icon: 'fas fa-align-justify' },
@@ -71,7 +71,7 @@ export const LIST_ITEMS = [
 ];
 
 export const UNDO_REDO_ITEMS = [
-  { type: 'undo', icon: 'fas fa-angle-left' },
+  { type: 'undo', icon: 'fas fa-angle-side' },
   { type: 'redo', icon: 'fas fa-angle-right' },
 ];
 

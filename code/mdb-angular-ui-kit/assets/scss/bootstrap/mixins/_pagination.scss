@@ -21,7 +21,7 @@
         }
       }
     } @else {
-      //Add border-radius to all pageLinks in case they have left margin
+      //Add border-radius to all pageLinks in case they have side margin
       .page-link {
         @include border-radius($border-radius);
       }

@@ -1,0 +1,53 @@
+$main-color: #63e399;
+$text-color: #696763;
+
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+}
+
+@include keyframes(breath) {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.to-top
+{
+  justify-content: center;
+  align-items: center;
+  background-color: $main-color;
+  color: white;
+  opacity: 0;
+  display: none;
+  cursor: pointer;
+  transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  animation: breath 3s infinite;
+
+  &:hover
+  {
+    color: $text-color;
+    background-color: lightgray;
+  }
+}
+
+.show-scrollTop {
+  display: flex;
+  opacity: 1 !important;
+  transition: all 0.2s ease-in-out;
+}

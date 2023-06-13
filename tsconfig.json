@@ -16,7 +16,7 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2017",
+    "target": "ES2022",
     "module": "es2020",
     "lib": [
       "es2018",
@@ -27,10 +27,18 @@
       "date",
       "node"
     ],
-    "paths":{
-      "http":["node_modules/stream-http"],
-      "https":["node_modules/https-browserify"]
-    }
+    "paths": {
+      "http": [
+        "node_modules/stream-http"
+      ],
+      "https": [
+        "node_modules/https-browserify"
+      ],
+      "crypto": [
+        "node_modules/crypto-js"
+      ]
+    },
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -1,0 +1,9 @@
+{
+  "/api/*": {
+    "target": "http://baotintuc.vn",
+    "secure": false,
+    "pathRewrite": { "^/api": "" },
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

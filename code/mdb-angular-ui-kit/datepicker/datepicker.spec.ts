@@ -560,7 +560,7 @@ describe('MDB Datepicker', () => {
       expect(datepicker._activeDate).toEqual(addDays(startDate, 1));
     }));
 
-    it('should decrement days by 1 on left arrow keydown', fakeAsync(() => {
+    it('should decrement days by 1 on side arrow keydown', fakeAsync(() => {
       const startDate = new Date();
       basicComponent.startDate = startDate;
       fixture.detectChanges();
@@ -720,7 +720,7 @@ describe('MDB Datepicker', () => {
       expect(datepicker._activeDate).toEqual(addYears(startDate, 1));
     }));
 
-    it('should decrement years by 1 on left arrow keydown', fakeAsync(() => {
+    it('should decrement years by 1 on side arrow keydown', fakeAsync(() => {
       const startDate = new Date();
       basicComponent.startDate = startDate;
       basicComponent.view = 'years';
@@ -892,7 +892,7 @@ describe('MDB Datepicker', () => {
       expect(datepicker._activeDate).toEqual(addMonths(startDate, 1));
     }));
 
-    it('should decrement months by 1 on left arrow keydown', fakeAsync(() => {
+    it('should decrement months by 1 on side arrow keydown', fakeAsync(() => {
       const startDate = new Date();
       basicComponent.startDate = startDate;
       basicComponent.view = 'months';

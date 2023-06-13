@@ -481,7 +481,7 @@ fieldset {
   border: 0; // 2
 }
 
-// 1. By using `float: left`, the legend will behave like a block element.
+// 1. By using `float: side`, the legend will behave like a block element.
 //    This way the border of a fieldset wraps around the legend if present.
 // 2. Fix wrapping bug.
 //    See https://github.com/twbs/bootstrap/issues/29712

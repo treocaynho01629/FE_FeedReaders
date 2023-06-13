@@ -1,104 +1,26 @@
 <br>
 
-<div *ngIf="status == 'loading'" class="page-loader" #container>
-  <mdb-loading [show]="true" [container]="container">
-    <div class="loading-spinner">
-      <div class="spinner-border loading-icon" role="status"></div>
-      <span class="loading-text">Đang tải...</span>
-    </div>
-  </mdb-loading>
-</div>
-
-<div *ngIf="status == 'ok'" class="container-fluid ps-5 pe-5" >
-
+<div class="container-xl">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb ps-1">
       <li class="breadcrumb-item"><a routerLink="">Trang chủ</a></li>
-      <li class="breadcrumb-item active" aria-current="page">{{cateName}}</li>
+      <li class="breadcrumb-item active" aria-current="page">{{feeds.cateName}}</li>
     </ol>
   </nav>
 
-  <div class="row ms-2 me-auto">
-    <div class="col col-12 col-lg-7">
-      <mdb-carousel [controls]="true" [indicators]="true" [dark]="true">
-        <mdb-carousel-item *ngFor="let article of currNews" class="main-top-heading" [interval]="5000">
-          <div class="card" style="height: 500px;">
-            <img src="{{article.thumbnail}}" (click)="viewDetails(article)" class="card-img-top"/>
-            <div class="card-body">
-              <div>
-                <h5 class="card-title" (click)="viewDetails(article)">{{article.title}}</h5>
-              </div>
-              <p class="card-text content mb-3">{{article.content}}</p>
-            </div>
-          </div>
-        </mdb-carousel-item>
-      </mdb-carousel>
-    </div>
+  <app-top-heading [feeds]="feeds"></app-top-heading>
 
-    <!--Right-->
-    <div class="col col-12 col-lg-5">
-      <div *ngFor="let article of currNews.slice(0,4)" (click)="viewDetails(article)">
-        <div class="card mb-2 right-top-heading">
-          <div class="row g-0">
-            <div class="col-4 col-lg-5">
-              <div>
-                <img
-                  src="{{article.thumbnail}}"
-                  class="img-fluid rounded-start"
-                  style="object-position: 50% 50%"
-                />
-              </div>
-            </div>
-            <div class="col-8 col-lg-7">
-              <div class="card-body">
-                <div>
-                  <h6 class="card-title" style="text-overflow: ellipsis;">{{article.title}}</h6>
-                </div>
-                <p class="card-text">
-                  <small class="text-muted">{{article.pubDate}}</small>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container-fluid mt-5">
+  <div class="container-fluid mb-3">
     <div class="row">
       <div class="col col-12 col-lg-3">
-        <app-left></app-left>
+        <app-side></app-side>
       </div>
 
       <div class="col col-12 col-lg-9">
-        <h6 class="heading-title text-uppercase"><i class="fas fa-fire-flame-curved"></i>&ensp;TIN {{cateName}} MỚI NHẤT</h6>
-
-        <div *ngFor="let article of currNews.slice(4, currNews.length)">
-          <div class="card mb-2 body-top-heading">
-            <div class="row g-0">
-              <div class="col-4">
-                <div (click)="viewDetails(article)">
-                  <img
-                    src="{{article.thumbnail}}"
-                    class="img-fluid rounded-start"
-                  />
-                </div>
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <div>
-                    <h6 class="card-title" (click)="viewDetails(article)" style="text-overflow: ellipsis;">{{article.title}}</h6>
-                  </div>
-                  <p class="card-text content">
-                    <small class="text-muted">{{article.content}}</small>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <app-main-heading [feeds]="feeds"></app-main-heading>
       </div>
     </div>
   </div>
+
+  <app-heading-carousel [categories]="ranCates"></app-heading-carousel>
 </div>

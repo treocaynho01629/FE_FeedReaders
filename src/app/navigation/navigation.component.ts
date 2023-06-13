@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NewsParseAPIService} from "../services/newsparseapi.service";
-import {Router} from "@angular/router";
+import { NewsapiService } from "../services/newsapi.service";
 
 @Component({
   selector: 'app-navigation',
@@ -9,21 +8,17 @@ import {Router} from "@angular/router";
 })
 export class NavigationComponent implements OnInit {
 
-  constructor(private service:NewsParseAPIService, private router:Router) { }
+  constructor(private service:NewsapiService) { }
 
-  categories: any; //danh sách các mục báo
+  categories: Map<string, string> = new Map<string, string>();
+  medias: Map<string, string> = new Map<string, string>();
 
   ngOnInit(): void {
-    this.categories = this.service.categories; //lấy danh sách từ services
+    this.categories = this.service.categories;
+    this.medias = this.service.medias;
   }
 
-  //chuyển tab category
-  viewCate(category:any){
-    this.router.navigateByUrl('/category/', {skipLocationChange: true}).then(()=>
-    {
-      this.router.routeReuseStrategy.shouldReuseRoute = () => false; //reload router
-      this.router.onSameUrlNavigation = 'reload';
-      this.router.navigate( ['/category/' + category.url])
-    });
+  returnZero() {
+    return 0
   }
 }

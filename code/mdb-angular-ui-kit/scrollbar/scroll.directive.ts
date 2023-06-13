@@ -52,7 +52,7 @@ export class MdbScrollbarDirective implements OnInit, OnDestroy {
     { ps: 'ps-scroll-x', mdb: 'scrollX' },
     { ps: 'ps-scroll-up', mdb: 'scrollUp' },
     { ps: 'ps-scroll-down', mdb: 'scrollDown' },
-    { ps: 'ps-scroll-left', mdb: 'scrollLeft' },
+    { ps: 'ps-scroll-side', mdb: 'scrollLeft' },
     { ps: 'ps-scroll-right', mdb: 'scrollRight' },
     { ps: 'ps-y-reach-end', mdb: 'yReachEnd' },
     { ps: 'ps-y-reach-start', mdb: 'yReachStart' },

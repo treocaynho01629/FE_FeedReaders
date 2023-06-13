@@ -1,0 +1,59 @@
+$main-color: #63e399;
+$text-color: #696763;
+
+.content
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right-top-heading
+{
+  min-height: 100px;
+  max-height: 140px;
+  cursor: pointer;
+  transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+
+  img
+  {
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    vertical-align: middle;
+    min-height: 100px;
+    height: 140px;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .card-img-placeholder
+  {
+    min-height: 100px;
+    height: 140px;
+    width: 100%;
+    cursor: pointer;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+
+  h6{
+    font-size: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  small {font-size: 12px;}
+
+  &:hover{
+    color: $main-color;
+  }
+}

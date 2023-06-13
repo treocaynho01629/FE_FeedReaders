@@ -2,8 +2,8 @@
   <div class="container justify-content-between">
     <!-- Left elements -->
     <ul class="navbar-nav d-flex flex-row nav-info">
-      <li class="nav-item me-3"><a class="nav-link active" aria-current="page" href="#"><i class="fa fa-phone"></i> +84123456789</a></li>
-      <li class="nav-item me-3"><a class="nav-link" href="#"><i class="fa fa-envelope"></i> daihocnonglam@hcmuaf.edu.vn</a></li>
+      <li class="nav-item me-3"><a class="nav-link active" aria-current="page"><i class="fa fa-phone"></i> +84123456789</a></li>
+      <li class="nav-item me-3"><a class="nav-link" ><i class="fa fa-envelope"></i> haductrong01629@gmail.com</a></li>
     </ul>
     <!-- Left elements -->
 
@@ -11,17 +11,17 @@
     <ul class="navbar-nav d-flex flex-row nav-icon">
       <!-- Icons -->
       <li class="nav-item me-4">
-        <a class="nav-link" href="#">
+        <a class="nav-link" >
           <i class="fab fa-facebook"></i>
         </a>
       </li>
       <li class="nav-item me-4">
-        <a class="nav-link" href="#">
+        <a class="nav-link" >
           <i class="fab fa-twitter"></i>
         </a>
       </li>
       <li class="nav-item me-4">
-        <a class="nav-link" href="#">
+        <a class="nav-link" >
           <i class="fab fa-google"></i>
         </a>
       </li>
@@ -35,8 +35,8 @@
   <div class="container justify-content-between">
     <a class="navbar-brand" routerLink="">
       <img
-        src="./assets/images/bell.png"
-        class="me-2"
+        src="./assets/images/bell.svg"
+        class="me-2 logo"
         height="45"
         loading="lazy"
       />
@@ -45,23 +45,11 @@
         <span> - NEWS</span>
       </a>
     </a>
-
-    <form class="d-flex input-group w-auto">
-      <input
-        type="search"
-        class="form-control rounded"
-        placeholder="Tìm kiếm ..."
-        aria-label="Search"
-      />
-      <span class="input-group-text border-0" id="search-addon">
-        <i class="fas fa-search"></i>
-      </span>
-    </form>
   </div>
 </nav> <!--header-middle-->
 
 <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: white;">
-  <div class="container-fluid">
+  <div class="container-xl nav-cate">
     <button
       class="navbar-toggler"
       type="button"
@@ -78,8 +66,11 @@
          #basicNav="mdbCollapse"
     >
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0 cate-item">
-        <li *ngFor="let category of categories" (click)="viewCate(category)" class="nav-item">
-          <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/category/',  category.url ]">{{category.name}}</a>
+        <li *ngFor="let category of categories | keyvalue: returnZero" class="nav-item cate-item" (click)="basicNav.hide()">
+          <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="[ category.key ]">{{category.value}}</a>
+        </li>
+        <li *ngFor="let media of medias | keyvalue: returnZero" class="nav-item cate-item" (click)="basicNav.hide()">
+          <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="[ media.key ]">{{media.value}}</a>
         </li>
       </ul>
     </div>
